@@ -12,11 +12,7 @@ try {
   // Run terraform init
   stage('init') {
     node {
-    deploydir = "./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2"
-    dir(deploydir) {
-        sh "pwd"
-        sh "ls -ltr"
-    }
+
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
         credentialsId: credentialsId,
@@ -24,6 +20,11 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
+        deploydir = "./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2"
+        dir(deploydir) {
+            sh "pwd"
+            sh "ls -ltr"
+        }
           sh '/usr/local/bin/terraform init'
         }
       }
