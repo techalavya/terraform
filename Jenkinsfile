@@ -15,6 +15,7 @@ try {
     deploydir = "./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2"
     dir(deploydir) {
         sh "pwd"
+        sh "ls -ltr"
     }
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
