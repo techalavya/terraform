@@ -20,10 +20,9 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-        deploydir = "./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2"
-        dir(deploydir) {
+        dir("./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2") {
             sh "pwd"
-            sh "ls -ltr"
+            sh "ls -ltra"
         }
           sh '/usr/local/bin/terraform init'
         }
@@ -41,6 +40,10 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
+        dir("./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2") {
+            sh "pwd"
+            sh "ls -ltra"
+        }
           sh '/usr/local/bin/terraform plan'
         }
       }
@@ -59,6 +62,10 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
+          dir("./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2") {
+              sh "pwd"
+              sh "ls -ltra"
+          }
             sh '/usr/local/bin/terraform apply -auto-approve'
           }
         }
@@ -75,6 +82,10 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
+          dir("./np-acc/us-east-1/dev-vpc/dev-env/c2o/ec2") {
+              sh "pwd"
+              sh "ls -ltra"
+          }
             sh '/usr/local/bin/terraform show'
           }
         }
